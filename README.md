@@ -1,6 +1,9 @@
 # Will AI Take Your Job?
+
 ## University of Chicago Applied Data Science Institute
+
 ## Natural Language Processing Final Project
+
 ## Instructor: Nick Kadochnikov
 
 ### Project Description
