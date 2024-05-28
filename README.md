@@ -17,7 +17,7 @@ Due to the size of the data, I use Google Cloud Platform's services - primarily 
 - Step 2: Data Filtering - extremely long/short and irrelevant (lacking data science, machine learning and AI keywords) articles are filtered out
 - Step 3: Topic Modeling - key topics and industries are identified using Latent Dirichlet Allocation (LDA) topic modeling from GenSim and ktrain libraries
 - Step 4: Sentiment Analysis Preparation - trained an SVM sentiment analysis model on open-source corpus of ~4.6k news articles (from huggingface)
-- Step 4.5: Sentiment Analysis Modeling - sentiment model applied at the sentence level and aggregated to determine overall article sentiment
+- Step 4.5: Sentiment Analysis - sentiment model applied at the sentence level and aggregated to determine overall article sentiment
 - Step 5: Named Entity Recognition - NER is performed at the sentence level using spaCy's large enlish pipeline trained on written web text (en_core_web_lg)
 - Step 6: Targeted Sentiment Analysis - article topics, entities, and sentiments are combined and their changes over time are analyzed
 - Step 7: Analysis and Slides - all methodology, and insights/takeaways are presented in a slide deck
@@ -46,7 +46,7 @@ I was provided ~200k news articles focused on data science, machine learning, an
 - I also used ktrain's TransformerSummarizer to summarize the 50 top-ranked articles for each topic.
 - Analyzing the word distributions and summaries for each topic revealed six clear areas being impacted by AI.
 
-Topics:
+**Topics:**
 - Semiconductors
 - Conversational AI
 - Healthcare
@@ -54,6 +54,12 @@ Topics:
 - ChatGPT & LLMs
 - Entertainment
 
+### Step 4: Sentiment Analysis Model Training
+- A custom SVM classifier was trained on the 'ML-news-sentiment' dataset from Hugging Face. The data set contains 4.6k news articles with positive, neutral, or negative labels
+- I chose this model because it is trained on news articles and because it provides a neutral classification. Often, the factual or descriptive statement in news articles have no clear sentiment. Rather than innacurately classifying these statements as positive/negative, this model labels them as neutral.
+- Articles were chunked into sentences using spaCy's sentence recognizer 'senter' and the customized sentiment model was deployed at the sentence level.
+- Sentiment surrounding AI, ML, data science was overwhelmingly positive from the start of 2020 through 2023, though a waning count of articles written on these topics in early 2024 could warn of a potential "AI winter".
 
+### Step 4.5: Sentiment Analysis
 
 
